@@ -3,7 +3,9 @@ const mongoose = require('mongoose');
 
 const UserPost = mongoose.model('UserPost', {
     postcreator: {
-        type: String
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
     placeimage: {
         type: String
@@ -20,8 +22,17 @@ const UserPost = mongoose.model('UserPost', {
     locationabout: {
         type: String
     },
+    updatedlocation: {
+        type: String
+    },
+    postsaved: {
+        type: Array
+    },
     postdate: {
         type: String
+    },
+    active: {
+        type: Boolean
     }
 });
 
